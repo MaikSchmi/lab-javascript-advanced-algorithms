@@ -20,7 +20,7 @@ const generateListQueue = () => {
   queue.display().forEach(item => {
     let li = document.createElement("li");
     li.className = "active";
-    li.innterText = item;
+    li.innerText = item;
     queueUL.appendChild(li);
   });
   for (let i = 0; i < size; i++) {
