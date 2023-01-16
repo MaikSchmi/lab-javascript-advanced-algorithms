@@ -44,18 +44,20 @@ const generateWarningStack = type => {
 };
 
 const addToStack = () => {
-  if (newStack.push(stackInput.value) === 'Stack Overflow') {
+  if (!newStack.canPush()) {
     generateWarningStack('overflow');
   } else {
+    newStack.push(stackInput.value)
     clearStackInput();
     renderListStack();
   }
 };
 
 const removeFromStack = () => {
-  if (newStack.pop() === 'Stack Underflow') {
+  if (newStack.isEmpty()) {
     generateWarningStack('underflow');
   } else {
+    newStack.pop();
     renderListStack();
   }
 };
